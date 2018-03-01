@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 闻道有先后
+title: Wula Meng
 subtitle: 晨起动征铎
 description: bravo
-author: 乌拉孟
+author: wula meng
 language: zh-Hans
 timezone: UTC
 
@@ -14,7 +14,7 @@ timezone: UTC
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :year/:month/:day/:subtitle/
 permalink_defaults:
 
 # Directory
@@ -81,3 +81,9 @@ deploy:
   repo: git@github.com:crazymeng4586/crazymeng4586.github.io.git
   branch: master
 
+  
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
