@@ -1070,7 +1070,7 @@ typedef struct elf64_note {
 
 3.共享目标文件: 一个动态链接库文件，他会和可重定位文件以及其他的共享目标文件，被链接编辑器处理生成其他的共享目标文件，或者是可执行文件。一般是.so文件，这个也是我们学习的重点。
 
-![](http://ousaim1qx.bkt.clouddn.com/2.png)
+![](/images/2.png)
 
 ​                        <!--图片来自北京大学信息科学技术学院操作系统实验室的《ELF文件格式分析》-->
 
@@ -1102,7 +1102,7 @@ typedef struct elf32_hdr{
 
 ##### `e_ident`：从字面意思来理解，elf文件的定义，他占用了16个字节。
 
-![](http://ousaim1qx.bkt.clouddn.com/1.png)
+![](/images/1.png)
 
 前4个字节对于所有的elf文件都是一样的,如上图所示，对应的就是7f E L F。
 
@@ -1379,10 +1379,10 @@ public final class Utils {
 
 程序结果：
 
-![](http://ousaim1qx.bkt.clouddn.com/3.png)
+![](/images/3.png)
 
 010editor看到的：
 
-![](http://ousaim1qx.bkt.clouddn.com/44.png)
+![](/images/44.png)
 
 可以看出，解析成功。

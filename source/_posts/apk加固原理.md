@@ -6,7 +6,7 @@ subtitle: Android
 categories: Android
 ---
 
-本文主要通过学习姜维大神的[Android中的Apk的加固(加壳)原理解析和实现](http://www.wjdiankong.cn/android%e4%b8%ad%e7%9a%84apk%e7%9a%84%e5%8a%a0%e5%9b%ba%e5%8a%a0%e5%a3%b3%e5%8e%9f%e7%90%86%e8%a7%a3%e6%9e%90%e5%92%8c%e5%ae%9e%e7%8e%b0/)和雪一梦大神的[根据”so劫持”过360加固详细分析](https://bbs.pediy.com/thread-223796.htm) 来记录自己的学习过程。
+本文主要通过学习姜维大神的[Android中的Apk的加固(加壳)原理解析和实现](http://www.520monkey.com/archives/553)和雪一梦大神的[根据”so劫持”过360加固详细分析](https://bbs.pediy.com/thread-223796.htm) 来记录自己的学习过程。
 
 > ### 为什么要对APK加固
 
@@ -16,17 +16,17 @@ categories: Android
 
 图片盗用姜维大神
 
-![](http://ousaim1qx.bkt.clouddn.com/download.png)
+![](/images/protectapk.png)
 
 从上图我们可以明白，apk加固主要步骤为：
 
 将一个需要加固的apk文件，一个负责解密的壳程序，先将apk文件进行加密，然后将解密的壳程序与之合并，得到新的dex文件，再将壳的dex文件替换，并得到一个全新的apk文件。将某个被加固的apk解压，如下图：
 
-![assets文件夹](http://ousaim1qx.bkt.clouddn.com/jiagua.png)
+![assets文件夹](/images/jiagua.png)
 
 经过加密后的文件的assets文件夹中多出了两个libjiagu.so和libjiagu_x86.so文件，这就是apk被加固的标志。
 
-![dex文件](http://ousaim1qx.bkt.clouddn.com/jadx.png)
+![dex文件](/images/jadx.png)
 
 我们用jadx打开加压后的dex文件，看到和加固的原理一样，dex文件被替换。以上就是加固的原理。
 
@@ -34,7 +34,7 @@ categories: Android
 
 这里我需要盗用一张非虫大神的图：
 
-![Android dex文件格式结构图](http://ousaim1qx.bkt.clouddn.com/Android%20dex%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png)
+![Android dex文件格式结构图](/images/Android dex文件格式结构图.png)
 
 Dex是Android平台上(Dalvik虚拟机)的可执行文件。其实所有的加固，加密措施都是针对DexHeader中的checksum，signature和filesize来进行的，因为加固需要对dex文件进行改动，所以dex文件校验的数据也必须进行改动，知道了这个点之后，也就明白了，我们只要掌握dexheader其他的也就万变不离其宗了。
 

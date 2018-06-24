@@ -14,7 +14,7 @@ categories: java
 
 类加载器这个概念自JDK1.0时就有了，好像一开始sun公司来定义它是因为它可以来加载从网络中取到的java程序。类加载器符合树形结构，如下图：
 
-![](http://ousaim1qx.bkt.clouddn.com/5YTXZK4DT65B%5D$IP%7DS$6%25C9.png)
+![](/images/classloader.png)
 
 首先在这里再补充一个概念，类加载器也是类，也是用java语言编写的。好了，那就继续看一下每个类加载器的解释，BootStrap是嵌在JVM内核中的加载器，该加载器是用C++语言写的，主要负载加载JAVA_HOME/lib下的类库，启动类加载器无法被应用程序直接使用。ExtClassLoader又称之为扩展类加载器，它主要来负责加载jre/lib/ext下的类库，如果在此文件夹下有jvm所需要的类，那么此类会被ExtClassLoader来加载。AppClassLoader也是系统类加载器，也是应用程序的类加载器，他负责加载classpath目录下所有的class和jar文件。
 
@@ -22,7 +22,7 @@ categories: java
 
 类加载器并不是通常意义上的继承关系，而是一种双亲委派机制，我通过一张图，来讲解一下，此图为盗用姜维大神的图：
 
-![](http://ousaim1qx.bkt.clouddn.com/20140101125755203.png)
+![](/images/non.png)
 
 从这张图中，可以很清楚，类加载器的工作机制，在类加载时，自定义的类加载器首先会委托给AppClassLoader，AppClassLoader再委托给ExtClassLoader，最后ExtClassLoader委托BootStrap，BootStrap先去加载，如果加载成功，类加载就结束了，不成功就会交给ExtClassLoader去加载，成功就结束，不成功就继续交给AppClassLoader去加载，成功就结束，不成功继续交给自定义的类加载器，成功就结束，不成功就会报ClassNotFoundException异常，整个类加载过程结束，这也就很好的说明了为什么类加载器的工作原理是双亲委托机制。
 
@@ -200,6 +200,6 @@ public class Test {
 
 然后我们运行，Console所打印的信息，正是我们希望看到的结果；
 
-![](http://ousaim1qx.bkt.clouddn.com/9X3H8HQGW%7D%60%5DMUY57~@XD@Y.png)
+![](/images/result.png)
 
 end！

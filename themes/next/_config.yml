@@ -147,7 +147,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: http://ousaim1qx.bkt.clouddn.com/image/png/head.pnghead.jpg
+avatar: /images/head.jpg
 
 # Table Of Contents in the Sidebar
 toc:
